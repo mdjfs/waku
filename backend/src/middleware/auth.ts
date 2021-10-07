@@ -31,13 +31,4 @@ const google = new Google.Strategy(config.google, providerAuth);
 // handle facebook OAUTH
 const facebook = new Facebook.Strategy(config.facebook, providerAuth);
 
-// handle protected routes
-const auth = (req: Request, res: Response, next: NextFunction) => {
-  if (req.isAuthenticated()) {
-    next();
-  } else {
-    res.redirect("/auth");
-  }
-};
-
-export { facebook, google, auth };
+export { facebook, google };

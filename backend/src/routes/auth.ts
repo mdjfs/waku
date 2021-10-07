@@ -26,9 +26,9 @@ router.get(
   passport.authenticate("google", { scope: ["profile"] })
 );
 
-//login template
-router.get("/auth", (req, res) => {
-  res.send(
-    `<a href="/auth/google">Login with google</a> <a href="/auth/facebook">Login with facebook</a>`
-  );
+// login status
+router.get("/auth/status", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.send(req.user).status(200);
+  } else res.send("Not logged-in").status(403);
 });

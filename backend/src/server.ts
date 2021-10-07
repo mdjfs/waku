@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import "./database";
 import config from "./config";
 import router from "./routes";
@@ -11,6 +12,7 @@ auth.initialize(app);
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 app.use(router);
 
 app.listen(config.port, () => {

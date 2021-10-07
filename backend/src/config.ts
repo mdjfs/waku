@@ -17,6 +17,10 @@ const config = {
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET || "",
     callbackURL: process.env.FACEBOOK_CALLBACK_URL || "",
   },
+  catApi: {
+    key: process.env.CAT_API_KEY || "",
+    url: process.env.CAT_API_URL || "",
+  },
 };
 
 const obligatory = [
@@ -28,6 +32,8 @@ const obligatory = [
   "FACEBOOK_CLIENT_ID",
   "FACEBOOK_CLIENT_SECRET",
   "FACEBOOK_CALLBACK_URL",
+  "CAT_API_KEY",
+  "CAT_API_URL",
 ];
 
 for (const prop of obligatory) {
