@@ -17,11 +17,18 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "jest": "^27.2.4",
     "mysql2": "^2.3.0",
     "passport": "^0.5.0",
     "passport-facebook": "^3.0.0",
     "passport-google-oauth20": "^2.0.0",
-    "sequelize-typescript": "^2.1.0"
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.6.5",
+    "sequelize-typescript": "^2.1.0",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
@@ -31,8 +38,6 @@
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.3",
     "@types/passport-facebook": "^2.1.11",
-    "@types/passport-google-oauth20": "^2.0.10",
-    "jest": "^27.2.4",
-    "ts-jest": "^27.0.5"
+    "@types/passport-google-oauth20": "^2.0.10"
   }
 }

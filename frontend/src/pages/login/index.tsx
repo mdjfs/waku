@@ -11,7 +11,6 @@ export default function () {
     async function getRandomCat() {
         const response = await fetch('/api/cat')
         const [cat]: Cat[] = await response.json()
-        console.log(cat)
         setCat(cat)
     }
 

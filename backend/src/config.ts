@@ -6,6 +6,7 @@ const config = {
   secretKey: process.env.SECRET_KEY || "",
   database: {
     uri: process.env.DATABASE_URI || "",
+    useSSL: process.env.DATABASE_USE_SSL || false,
   },
   google: {
     clientID: process.env.GOOGLE_CLIENT_ID || "",

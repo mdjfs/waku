@@ -48,3 +48,13 @@
         font-size: medium !important;
     }
 }
+
+.cat-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.cat-data > * {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}

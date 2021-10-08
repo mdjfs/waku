@@ -12,10 +12,10 @@ interface Option {
 export default function () {
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
-    const [cats, setCats] = useState<Cat[]>([])
+    const [cats, setCats] = useState<Cat[]>()
     const [mode, setMode] = useState<'local' | 'api'>('local')
     const [filter, setFilter] = useState<'breed' | 'category'>('breed')
-    const [filterOptions, setFilterOptions] = useState<Option[]>([])
+    const [filterOptions, setFilterOptions] = useState<Option[]>()
     const [filterValue, setFilterValue] = useState<string>('all')
 
     async function fetchCoupleCats() {
@@ -24,7 +24,7 @@ export default function () {
         const filterID = filter === 'breed' ? 'breed_ids' : 'category_ids'
         const param = filterValue !== 'all' ? `${filterID}=${filterValue}` : ''
         const response = await fetch(url + `?page=${page}&limit=5&${param}`)
-        const fetched = [...cats, ...(await response.json())]
+        const fetched = [...(cats || []), ...(await response.json())]
         setCats(fetched)
         setPage(Math.ceil((fetched.length + 5) / 5))
         setLoading(false)
@@ -46,22 +46,22 @@ export default function () {
 
     function init() {
         setPage(1)
-        setCats([])
-        setFilterOptions([])
+        setCats(null)
+        setFilterOptions(null)
     }
 
     useEffect(init, [mode])
 
     useEffect(() => {
-        if (cats.length === 0) fetchCoupleCats()
+        if (!cats) fetchCoupleCats()
     }, [cats])
 
     useEffect(() => {
-        setFilterOptions([])
+        setFilterOptions(null)
     }, [filter])
 
     useEffect(() => {
-        if (filterOptions.length === 0) fetchOptions()
+        if (!filterOptions) fetchOptions()
     }, [filterOptions])
 
     return (
@@ -103,17 +103,19 @@ export default function () {
                     }}
                 >
                     <option value="all">All</option>
-                    {filterOptions.map((option) => (
-                        <option value={option.id} key={option.id}>
-                            {option.name}
-                        </option>
-                    ))}
+                    {filterOptions &&
+                        filterOptions.map((option) => (
+                            <option value={option.id} key={option.id}>
+                                {option.name}
+                            </option>
+                        ))}
                 </select>
             </div>
             <div className="cats">
-                {cats.map((cat, i) => (
-                    <CatComponent cat={cat} key={`cat-${i}`}></CatComponent>
-                ))}
+                {cats &&
+                    cats.map((cat, i) => (
+                        <CatComponent cat={cat} key={`cat-${i}`}></CatComponent>
+                    ))}
                 {loading && <Loading></Loading>}
             </div>
         </div>

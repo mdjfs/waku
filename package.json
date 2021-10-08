@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/mdjfs/waku/issues"
   },
-  "homepage": "https://github.com/mdjfs/waku#readme"
+  "homepage": "https://github.com/mdjfs/waku#readme",
+  "dependencies": {
+    "webpack-cli": "^4.9.0"
+  }
 }
