@@ -12,7 +12,7 @@ const optimizePlugins = [
     new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new BundleAnalyzerPlugin(),
+    //new BundleAnalyzerPlugin(),
 ]
 
 const webpackConfig = (): Configuration => ({
