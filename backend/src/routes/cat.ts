@@ -1,5 +1,4 @@
 import router from "./router";
-import { Response } from "express";
 import {
   getBreeds,
   getCategories,
@@ -8,8 +7,6 @@ import {
   getLocalCategories,
   getLocalCats,
 } from "../controllers/cat";
-
-const error = (err: Error, res: Response) => res.send(err).status(500);
 
 router.get("/api/cat", getCats);
 router.get("/api/cat/breeds", getBreeds);

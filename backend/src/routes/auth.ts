@@ -9,6 +9,7 @@ router.get(
     failureRedirect: "/login",
   })
 );
+
 // Facebook OAUTH Request
 router.get("/auth/facebook", passport.authenticate("facebook"));
 
@@ -20,6 +21,7 @@ router.get(
     failureRedirect: "/login",
   })
 );
+
 // Google OAUTH Request
 router.get(
   "/auth/google",

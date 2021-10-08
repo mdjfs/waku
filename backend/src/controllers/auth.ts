@@ -5,6 +5,9 @@ import User from "../database/models/user";
 import config from "../config";
 import { facebook, google } from "../middleware/auth";
 
+/**
+ * Initialize passport auth functions
+ */
 export function initialize(app: Application) {
   app.use(
     session({

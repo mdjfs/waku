@@ -1,6 +1,5 @@
 import Google from "passport-google-oauth20";
 import Facebook from "passport-facebook";
-import { NextFunction, Response, Request } from "express";
 import config from "../config";
 import User from "../database/models/user";
 import Provider from "../database/models/provider";
