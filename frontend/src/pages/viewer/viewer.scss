@@ -1,0 +1,76 @@
+body {
+    background-color: #1e272e;
+}
+
+html {
+    overflow: hidden;
+}
+
+* {
+    color: white;
+}
+
+.tabs {
+    width: 40%;
+    display: flex;
+    position: relative;
+    margin: auto;
+    margin-top: 2.5%;
+}
+
+.tabs button {
+    width: 50%;
+    height: 100%;
+    font-size: x-large;
+    border: solid 1px white;
+    background: none;
+    transition: all 0.5s;
+}
+
+.tabs button.selected,
+.tabs button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.tabs button:nth-child(2) {
+    border-end-end-radius: 5px;
+    border-start-end-radius: 5px;
+    border-left: none;
+}
+
+.tabs button:nth-child(1) {
+    border-end-start-radius: 5px;
+    border-start-start-radius: 5px;
+    border-right: none;
+}
+
+.cats-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+.filter {
+    text-align: center;
+    font-size: large;
+    padding: 5%;
+}
+
+.filter select {
+    margin: 1%;
+    background: none;
+    border-radius: 3px;
+    border: solid 2px white;
+    font-size: x-large;
+}
+
+.cats {
+    display: flex;
+    flex-direction: column;
+}

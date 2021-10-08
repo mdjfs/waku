@@ -1,0 +1,135 @@
+h1 {
+    color: white;
+}
+
+.cat-panel {
+    clip-path: polygon(100% 0, 100% 100%, 70% 91%, 0 91%, 0 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #48546085;
+}
+
+.cat-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #1e272e;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+
+.auth-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+
+    background-color: #1e272e;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+
+.cat-panel img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    color: transparent;
+}
+
+.typewriter {
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
+}
+
+.typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: 0.1em solid #1e272e; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: 0.1em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    color: white;
+    font-size: 2em;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #455663;
+    }
+}
+
+.auth-buttons {
+    width: 50%;
+    position: relative;
+    top: 20%;
+    left: 20%;
+    padding: 5%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-button svg {
+    padding-right: 15px;
+}
+.auth-button {
+    display: grid;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border: none;
+    padding: 4% 8% 4% 8%;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    margin: auto;
+    text-decoration: none;
+    text-align: center;
+    grid-template-columns: 1fr 4fr;
+    width: auto;
+    position: relative;
+    margin: 5%;
+}
+
+.auth-button:hover {
+    box-shadow: 0 3px 8px rgba(117, 117, 117, 0.5);
+}
+
+@media (orientation: portrait) {
+    .cat-container {
+        width: 100%;
+        height: 50%;
+    }
+    .typewriter {
+        font-size: 0.4em;
+    }
+    .auth-container {
+        width: 100%;
+        height: 50%;
+        top: 50%;
+        left: 0;
+    }
+}

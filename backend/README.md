@@ -86,6 +86,12 @@ To run tests, run the following command
   GET /auth/status
 ```
 
+#### Auth Logout
+
+```http
+  GET /auth/logout
+```
+
 ## API Reference
 
 #### Get cats from CatApi

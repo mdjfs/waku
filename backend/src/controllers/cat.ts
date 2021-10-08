@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Request, Response } from "express";
+import { Op } from "sequelize";
 import { Fn } from "sequelize/types/lib/utils";
 import config from "../config";
 import sequelize from "../database";
@@ -38,28 +39,38 @@ export async function getDatabaseCats(params: CatParams) {
   const page = parseInt(params.page || "1") - 1;
   const limit = parseInt(params.limit || "1");
   const offset = page * limit;
-  const include = [];
-  let order: Array<[string, string]> | Fn = [["id", "DESC"]];
-  if (params.order === "Rand") order = sequelize.random();
+  let order: Array<[string, string]> | Fn = sequelize.random();
+  const where = {};
+  if (params.order === "Desc") order = [["id", "DESC"]];
   if (params.order === "Asc") order = [["id", "ASC"]];
   if (params.breed_ids) {
-    include.push({
-      model: Breed,
-      through: { where: { breedId: params.breed_ids } },
+    const breeds: CatBreed[] = await CatBreed.findAll({
+      offset,
+      limit,
+      order,
+      where: { breedId: params.breed_ids },
     });
+    where["id"] = {
+      [Op.in]: breeds.map((b) => b.catId),
+    };
   }
   if (params.category_ids) {
-    include.push({
-      model: Category,
-      through: { where: { categoryId: params.category_ids } },
+    const categories: CatCategory[] = await CatCategory.findAll({
+      offset,
+      limit,
+      order,
+      where: { categoryId: params.category_ids },
     });
+    where["id"] = {
+      [Op.in]: categories.map((c) => c.catId),
+    };
   }
-  include.push({ model: User });
   const cats: Cat[] = await Cat.findAll({
     offset,
     limit,
-    include,
+    include: { all: true },
     order,
+    where,
   });
   return cats;
 }

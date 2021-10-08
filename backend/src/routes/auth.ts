@@ -28,9 +28,15 @@ router.get(
   passport.authenticate("google", { scope: ["profile"] })
 );
 
+// Logout
+router.get("/auth/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
+
 // login status
 router.get("/auth/status", (req, res) => {
   if (req.isAuthenticated()) {
-    res.send(req.user).status(200);
-  } else res.send("Not logged-in").status(403);
+    res.send(req.user);
+  } else res.status(403).send("Not logged-in");
 });

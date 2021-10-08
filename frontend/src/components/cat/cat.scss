@@ -1,0 +1,50 @@
+.cat-card {
+    padding: 5%;
+    width: 90%;
+}
+
+.cat-card .cat-image img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.cat-card.with-data {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.cat-breed::before {
+    content: '🐱Breed';
+}
+.cat-category::before {
+    content: '😽Category';
+}
+
+.requested-by::before {
+    content: '😻Loaded first time by';
+}
+
+.cat-breed,
+.cat-category,
+.requested-by {
+    background-color: #181f25;
+    padding: 8%;
+    border-radius: 6px;
+    margin-left: -22%;
+}
+
+.cat-breed .name,
+.cat-breed .country {
+    font-weight: bolder;
+}
+
+.cat-breed .description {
+    font-size: smaller;
+}
+
+@media (orientation: portrait) {
+    .tabs button,
+    .filter select {
+        font-size: medium !important;
+    }
+}

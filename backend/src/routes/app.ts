@@ -1,7 +1,12 @@
-import User from "../database/models/user";
+import path from "path";
 import router from "./router";
 
+console.log(__dirname);
+
+router.get("/bundle", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../../frontend/main.bundle.js"));
+});
+
 router.get("*", (req, res) => {
-  const user = req.user as User;
-  res.send(`Hello ${user ? user.name : " "} !`);
+  res.sendFile(path.join(__dirname, "../../../frontend/main.html"));
 });

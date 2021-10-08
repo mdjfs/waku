@@ -15,6 +15,7 @@ function providerAuth(accessToken, refreshToken, profile, cb) {
         providerId: provider.id,
         name: profile.displayName,
       },
+      include: { all: true },
     })
       .then(([user]) => cb(null, user))
       .catch((err) => cb(err, null));
