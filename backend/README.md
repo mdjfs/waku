@@ -7,6 +7,7 @@ Backend Component for Authorization, Database, CatAPI Calls and Serve React SPA
 - [Installation](#installation)
 - [Deployment](#deployment)
 - [Running Tests](#running-tests)
+- [Authorization](#authorization)
 - [API Reference](#api-reference)
 
 ## Installation
@@ -51,6 +52,38 @@ To run tests, run the following command
 
 ```bash
   npm test
+```
+
+## Authorization
+
+#### Google auth
+
+```http
+  GET /auth/google
+```
+
+#### Google auth callback
+
+```http
+  GET /auth/google/callback
+```
+
+#### Facebook auth
+
+```http
+  GET /auth/facebook
+```
+
+#### Facebook auth callback
+
+```http
+  GET /auth/facebook/callback
+```
+
+#### Auth Status
+
+```http
+  GET /auth/status
 ```
 
 ## API Reference
@@ -106,3 +139,7 @@ To run tests, run the following command
 ```http
   GET /api/cat/local/breeds
 ```
+
+## Authors
+
+- [@mdjfs](https://www.github.com/mdjfs)
